@@ -17,6 +17,7 @@ namespace Army
         public string Name;
         public string Surname;
         public readonly int Number;
+
         public string Rank;
         public int Unit;
         public DateTime StartDate;
@@ -44,22 +45,19 @@ namespace Army
             return $"{Name} {Surname}";
         }
 
-        public void PrintInfo()
+        public virtual string[] GetInfo()
         {
-            Console.WriteLine($"{Rank} {this} ({Number})");
+            var info = new string[2];
+            info[0] = ToString();
 
-            var type = "";
-            switch (Type)
-            {
-                case ServiceType.Contract:
-                    type = "контрактная";
-                    break;
-                case ServiceType.Draft:
-                    type = "срочная";
-                    break;
-            }
+            string type;
+            if (Type == ServiceType.Contract)
+                type = "контрактная";
+            else
+                type = "срочная";
 
-            Console.WriteLine($"Номер воинской части: {Unit}\nДата поступления на службу: {StartDate}\nСрок службы: {ServiceTime}\nТип службы: {type}");
+            info[1] = $"Номер военного билета: {Number}. Звание: {Rank}. Номер воинской части: {Unit}. Дата поступления на службу: {StartDate:d}. Срок службы: {ServiceTime}. Тип службы: {type}.";
+            return info;
         }
     }
 }

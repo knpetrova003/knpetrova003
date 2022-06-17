@@ -1,0 +1,6 @@
+﻿Прошло времени: 00:00:01.1789880
+========== Готово ==========
+
+
+Восстановлен C:\Users\Asus\source\repos\knpetrova003\ArmyLibrary\ClassLibrary1\ClassLibrary1.csproj (за 300 ms).
+Восстановлен C:\Users\Asus\source\repos\knpetrova003\ArmyLibrary\ArmyLibrary\ArmyLibrary.csproj (за 289 ms).

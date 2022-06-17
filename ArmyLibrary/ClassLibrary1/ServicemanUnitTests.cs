@@ -22,7 +22,14 @@ namespace Army.UnitTests
         }
 
         [Test]
-        public void TratesTest()
+        public void ToStringTest()
+        {
+            var snake = CreateTestServiceman();
+            Assert.AreEqual("Солид Снейк", snake.ToString());
+        }
+
+        [Test]
+        public void GetInfoTest()
         {
             var snake = CreateTestServiceman();
 
@@ -30,19 +37,11 @@ namespace Army.UnitTests
             snake.Unit = 61524;
             snake.StartDate = new DateTime(1987, 7, 13);
             snake.Type = ServiceType.Contract;
+            var info = snake.GetInfo();
 
-            Assert.AreEqual("солдат специального назначения", snake.Rank);
-            Assert.AreEqual(61524, snake.Unit);
-            Assert.AreEqual(new DateTime(1987, 7, 13), snake.StartDate);
-            Assert.AreEqual(12748, snake.ServiceTime);
-            Assert.AreEqual(ServiceType.Contract, snake.Type);
-        }
-
-        [Test]
-        public void ToStringTest()
-        {
-            var snake = CreateTestServiceman();
-            Assert.AreEqual("Солид Снейк", snake.ToString());
+            Assert.AreEqual(2, info.Length);
+            Assert.AreEqual("Солид Снейк", info[0]);
+            Assert.AreEqual($"Номер военного билета: 0. Звание: солдат специального назначения. Номер воинской части: 61524. Дата поступления на службу: 13.07.1987. Срок службы: {snake.ServiceTime}. Тип службы: контрактная.", info[1]);
         }
 
         private Serviceman CreateTestServiceman()
@@ -51,4 +50,3 @@ namespace Army.UnitTests
         }
     }
 }
-
