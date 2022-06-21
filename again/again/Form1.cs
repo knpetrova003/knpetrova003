@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace game
+namespace again
 {
-    public partial class W : Form
+    public partial class Form1 : Form
     {
-        public W()
+        public Form1()
         {
             InitializeComponent();
         }
-
     }
 }

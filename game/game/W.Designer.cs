@@ -34,11 +34,12 @@ namespace game
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 57);
+            this.label1.Size = new System.Drawing.Size(358, 185);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ВЫ ПОБЕДИЛИ!";
+            this.label1.Text = "ВЫ ПОБЕДИЛИ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // W
@@ -51,7 +52,6 @@ namespace game
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "W";
-            this.Text = "W";
             this.ResumeLayout(false);
 
         }

@@ -1,5 +1,4 @@
-﻿using game;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace risovach
+namespace game
 {
     public partial class MainForm : Form
     {
@@ -1688,11 +1687,5 @@ namespace risovach
         {
 
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-
