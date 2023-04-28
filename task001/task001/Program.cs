@@ -7,7 +7,7 @@ struct Food
     private int weight;
     public int Weight
     {
-        get { return weight; }
+        get { return weight; }   
         set
         {
             if (value > 0)
@@ -85,3 +85,4 @@ struct Food
         return new Food(f1.Weight - f2.Weight, f1.Calorie);
     }
 }
+
