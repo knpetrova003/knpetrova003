@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Security.Cryptography;
-
 
 namespace PhotoEnhancer
 {
@@ -15,7 +15,7 @@ namespace PhotoEnhancer
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-
+        [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH", MessageId = "type: System.Double[]")]
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -52,31 +52,18 @@ namespace PhotoEnhancer
                 new RotateTransformer()
                 ));
 
-            mainForm.AddFilter(new PixelFilter<ChannelLighteningParameters>(
-                "Раздельное осветление/затемнение каналов",
+            var random = new Random();
+            mainForm.AddFilter(new PixelFilter<NoiseParameters>(
+                "Монохромный шум",
                 (pixel, parameters) =>
                 {
-                   var r = Math.Min(1, Math.Max(0, pixel.R * parameters.Rk));
-                   var g = Math.Min(1, Math.Max(0, pixel.G * parameters.Gk));
-                   var b = Math.Min(1, Math.Max(0, pixel.B * parameters.Bk));
-                   return new Pixel(r, g, b);
+                    var k = parameters.Coefficient;
+                    var r = random.NextDouble();
+                    return Convertors.HSLToPixel(pixel.H, pixel.S, k * r + (1 - k) * pixel.L);
                 }));
-
-            mainForm.AddFilter(new ReplaceOddRowsFilter(
-                "Замена нечетных строк",
-                new ReplaceOddRowsTransformer()
-            ));
-
-            mainForm.AddFilter(new InterlaceFilter("Чересстрочная развертка"));
-
-            mainForm.AddFilter(new TransformFilter<ShiftParameters>(
-               "Сдвиг вправо",
-               new MoveTransformer()
-            ));
 
 
             Application.Run(mainForm);
         }
-
     }
 }
