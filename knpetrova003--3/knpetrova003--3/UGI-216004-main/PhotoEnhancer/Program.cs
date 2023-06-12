@@ -70,6 +70,10 @@ namespace PhotoEnhancer
             mainForm.AddFilter(new InterlaceFilter("Чересстрочная развертка"));
 
 
+            mainForm.AddFilter(new TransformFilter<ShiftParameters>(
+                "Сдвиг вправо",
+                new MoveTransformer()
+            ));
 
 
             Application.Run(mainForm);
