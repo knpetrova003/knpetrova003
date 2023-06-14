@@ -11,7 +11,7 @@ namespace ShopLibrary
         PriceList priceList;
         Warehouse warehouse;
 
-        public Shop(Warehouse warehouse, PriceList priceList)
+        public Shop (Warehouse warehouse, PriceList priceList)
         {
             this.priceList = priceList;
             this.warehouse = warehouse;
