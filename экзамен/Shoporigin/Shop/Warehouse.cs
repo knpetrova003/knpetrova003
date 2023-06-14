@@ -15,7 +15,7 @@ namespace ShopLibrary
             // Конструктор дожен по записям в фомате категория, название, количество
             // (именно в этом порядке) и по заданному прайс-листу заполнить словаь склада товарами
             // На склад дожлны быть помещены только товары, имеющиеся в прайс-листе.
-            
+
             throw new NotImplementedException();
         }
 
@@ -42,7 +42,7 @@ namespace ShopLibrary
         public int Count(Comodity comodity)
         {
             // Метод должен подсчитывать количество заданного товара на складе;
-            
+
             throw new NotImplementedException();
         }
 
